@@ -1,0 +1,113 @@
+! Exercícios práticos para aprender Hope
+! Execute este arquivo com: hope -f exercicios.hop
+
+!! Exercício 1: Funções matemáticas básicas
+! Implemente uma função para calcular a potência de um número
+dec potencia: num # num -> num;
+--- potencia(x, 0) <= 1;
+--- potencia(x, succ(n)) <= x * potencia(x, n);
+
+!! Exercício 2: Manipulação de listas
+! Função para encontrar o último elemento de uma lista
+dec ultimo: list alpha -> alpha;
+--- ultimo([x]) <= x;
+--- ultimo(x::xs) <= ultimo(xs);
+
+! Função para remover o último elemento de uma lista
+dec init: list alpha -> list alpha;
+--- init([x]) <= [];
+--- init(x::xs) <= x :: init(xs);
+
+!! Exercício 3: Filtros e transformações
+! Função para filtrar números ímpares
+dec impares: list num -> list num;
+--- impares([]) <= [];
+--- impares(x::xs) <= if x mod 2 = 1 
+                      then x :: impares(xs) 
+                      else impares(xs);
+
+! Função para duplicar todos elementos de uma lista
+dec duplicar_elementos: list alpha -> list alpha;
+--- duplicar_elementos([]) <= [];
+--- duplicar_elementos(x::xs) <= x :: x :: duplicar_elementos(xs);
+
+!! Exercício 4: Ordenação simples
+! Inserção ordenada em lista
+dec inserir_ordenado: num # list num -> list num;
+--- inserir_ordenado(x, []) <= [x];
+--- inserir_ordenado(x, y::ys) <= if x =< y 
+                                  then x :: y :: ys
+                                  else y :: inserir_ordenado(x, ys);
+
+! Ordenação por inserção
+dec ordenar: list num -> list num;
+--- ordenar([]) <= [];
+--- ordenar(x::xs) <= inserir_ordenado(x, ordenar(xs));
+
+!! Exercício 5: Trabalhando com strings (listas de char)
+! Função para contar vogais em uma string
+dec eh_vogal: char -> bool;
+--- eh_vogal('a') <= true;
+--- eh_vogal('e') <= true;
+--- eh_vogal('i') <= true;
+--- eh_vogal('o') <= true;
+--- eh_vogal('u') <= true;
+--- eh_vogal(_) <= false;
+
+dec contar_vogais: list char -> num;
+--- contar_vogais([]) <= 0;
+--- contar_vogais(c::cs) <= if eh_vogal(c) 
+                           then 1 + contar_vogais(cs)
+                           else contar_vogais(cs);
+
+!! Exercício 6: Árvores binárias
+data arvore == vazia ++ folha(num) ++ no(arvore # num # arvore);
+
+! Função para calcular a altura de uma árvore
+dec altura: arvore -> num;
+--- altura(vazia) <= 0;
+--- altura(folha(x)) <= 1;
+dec max: num # num -> num;
+--- max(a, b) <= if a > b then a else b;
+
+--- altura(no(esq, x, dir)) <= 1 + max(altura(esq), altura(dir));
+
+! Função para buscar um elemento na árvore
+dec buscar: num # arvore -> bool;
+--- buscar(x, vazia) <= false;
+--- buscar(x, folha(y)) <= x = y;
+--- buscar(x, no(esq, y, dir)) <= if x = y then true
+                                  else if x < y then buscar(x, esq)
+                                  else buscar(x, dir);
+
+!! Exercício 7: Higher-order functions
+! Aplicar uma função n vezes
+dec aplicar_n_vezes: num # (alpha -> alpha) -> (alpha -> alpha);
+--- aplicar_n_vezes(0, f) <= lambda x => x;
+--- aplicar_n_vezes(succ(n), f) <= lambda x => f(aplicar_n_vezes(n, f)(x));
+
+!! Testes dos exercícios
+
+! Teste 1: Potência
+potencia(2, 5);      ! deve retornar 32
+
+! Teste 2: Último elemento
+ultimo([1,2,3,4,5]); ! deve retornar 5
+
+! Teste 3: Números ímpares
+impares([1,2,3,4,5,6,7,8,9]); ! deve retornar [1,3,5,7,9]
+
+! Teste 4: Duplicar elementos  
+duplicar_elementos([1,2,3]); ! deve retornar [1,1,2,2,3,3]
+
+! Teste 5: Ordenação
+ordenar([3,1,4,1,5,9,2,6]); ! deve retornar [1,1,2,3,4,5,6,9]
+
+! Teste 6: Contar vogais
+contar_vogais("programming"); ! deve retornar 3
+
+! Teste 7: Altura de árvore
+altura(no(folha(1), 5, no(folha(3), 7, folha(9)))); ! deve retornar 3
+
+! Teste 8: Aplicar função n vezes
+aplicar_n_vezes(3, lambda x => x * 2)(5); ! deve retornar 40 (5*2*2*2)

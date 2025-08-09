@@ -1,0 +1,37 @@
+! Exemplo de arquivo Hope para testar VSCode
+! Este arquivo demonstra syntax highlighting e funcionalidades
+
+!! Exemplo de função simples
+dec saudacao: list char -> list char;
+--- saudacao(nome) <= "Olá, " <> nome <> "!";
+
+!! Exemplo de função com números
+dec fibonacci: num -> num;
+--- fibonacci(0) <= 0;
+--- fibonacci(1) <= 1;
+--- fibonacci(succ(succ(n))) <= fibonacci(succ(n)) + fibonacci(n);
+
+!! Exemplo de processamento de listas
+dec dobrar_lista: list num -> list num;
+--- dobrar_lista([]) <= [];
+--- dobrar_lista(x::xs) <= (x * 2) :: dobrar_lista(xs);
+
+!! Exemplo de tipo de dados customizado
+data arvore_binaria == vazia ++ folha(num) ++ no(arvore_binaria # num # arvore_binaria);
+
+!! Exemplo de função com pattern matching
+dec contar_nos: arvore_binaria -> num;
+--- contar_nos(vazia) <= 0;
+--- contar_nos(folha(x)) <= 1;
+--- contar_nos(no(esq, x, dir)) <= 1 + contar_nos(esq) + contar_nos(dir);
+
+!! Exemplo com lambda
+dec aplicar_funcao: (num -> num) # list num -> list num;
+--- aplicar_funcao(f, []) <= [];
+--- aplicar_funcao(f, x::xs) <= f(x) :: aplicar_funcao(f, xs);
+
+!! Testando as funções
+saudacao("Mundo");
+fibonacci(10);
+dobrar_lista([1, 2, 3, 4, 5]);
+aplicar_funcao(lambda x => x * x, [1, 2, 3, 4]);

@@ -1,0 +1,29 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Run Current Hope File",
+      "type": "node",
+      "request": "launch",
+      "program": "/usr/local/bin/hope",
+      "args": ["-f", "${file}"],
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}",
+      "env": {
+        "HOPEPATH": "/usr/local/share/hope/lib"
+      }
+    },
+    {
+      "name": "Hope Interactive Mode",
+      "type": "node", 
+      "request": "launch",
+      "program": "/usr/local/bin/hope",
+      "args": [],
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}",
+      "env": {
+        "HOPEPATH": "/usr/local/share/hope/lib"
+      }
+    }
+  ]
+}

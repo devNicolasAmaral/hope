@@ -1,0 +1,154 @@
+The standard environment for Hope, implicitly used by every session
+and module.
+\subsection{Standard type constructors}
+
+Standard type variables.
+\begin{verbatim}
+    typevar alpha, beta, gamma;
+\end{verbatim}
+Function and product types.
+\begin{verbatim}
+    infixr -> : 2;
+    abstype neg -> pos;
+
+    infixr # : 4;
+    abstype pos # pos;
+
+    --- (a # b) (x, y) <= (a x, b y);
+
+    infixr X : 4;
+    type alpha X beta == alpha # beta;
+\end{verbatim}
+Normal right-to-left composition of f and g.
+\begin{verbatim}
+    infix o : 2;
+    dec o : (beta -> gamma) # (alpha -> beta) -> alpha -> gamma;
+    --- (f o g) x <= f(g x);
+
+    --- (a -> b) f <= b o f o a;
+\end{verbatim}
+The identity function.
+\begin{verbatim}
+    dec id : alpha -> alpha;
+    --- id x <= x;
+\end{verbatim}
+Booleans with the standard operations.
+\begin{verbatim}
+    data bool == false ++ true;
+    type truval == bool;
+
+    infix or : 1;
+    infix and : 2;
+
+    dec not : bool -> bool;
+    --- not true <= false;
+    --- not false <= true;
+
+    dec and : bool # bool -> bool;
+    --- false and p <= false;
+    --- true and p <= p;
+
+    dec or : bool # bool -> bool;
+    --- true or p <= true;
+    --- false or p <= p;
+
+    dec if_then_else : bool -> alpha -> alpha -> alpha;
+    --- if true then x else y <= x;
+    --- if false then x else y <= y;
+\end{verbatim}
+Lists.
+\begin{verbatim}
+    infixr :: : 5;
+    data list alpha == nil ++ alpha :: list alpha;
+\end{verbatim}
+List concatenation.
+\begin{verbatim}
+    infixr <> : 5;
+    dec <> : list alpha # list alpha -> list alpha;
+    --- [] <> ys <= ys;
+    --- (x::xs) <> ys <= x::(xs <> ys);
+\end{verbatim}
+The type num behaves as if it were defined by:
+\begin{verbatim}
+    !        data num == 0 ++ succ num;
+\end{verbatim}
+but is actually implemented a little more efficiently.
+The type also contains negative numbers (and reals in some implementations).
+\begin{verbatim}
+    data num == succ num;
+\end{verbatim}
+Similarly, the type char behaves as if it were defined as an enumeration
+(in the normal order) of all the ASCII character constants.
+\begin{verbatim}
+    abstype char;
+
+    --- char x <= x;
+\end{verbatim}
+\subsection{Internally defined functions}
+
+Comparison functions:
+these evaluate their arguments only to the extent necessary to determine
+their order.  In comparing distinct constants and constructors, the
+lesser is the one which came earlier in the data definition in which
+both were defined.  Pairs compare lexicographically, while comparison
+of functions triggers a run-time error.  On the types num, char and
+list(char), these rules give the normal orderings.
+\begin{verbatim}
+    infix =, /= : 3;
+    infix <, =<, >, >= : 4;
+    dec =, /=, <, =<, >, >= : alpha # alpha -> bool;
+\end{verbatim}
+Lower-level comparison functions.
+\begin{verbatim}
+    data relation == LESS ++ EQUAL ++ GREATER;
+
+    dec compare : alpha # alpha -> relation;
+
+    --- x =  y <= (\ EQUAL => true | _ => false) (compare(x, y));
+    --- x /= y <= (\ EQUAL => false | _ => true) (compare(x, y));
+    --- x <  y <= (\ LESS => true | _ => false) (compare(x, y));
+    --- x >= y <= (\ LESS => false | _ => true) (compare(x, y));
+    --- x >  y <= (\ GREATER => true | _ => false) (compare(x, y));
+    --- x =< y <= (\ GREATER => false | _ => true) (compare(x, y));
+\end{verbatim}
+Conversions.
+\begin{verbatim}
+    dec ord : char -> num;
+    dec chr : num -> char;
+
+    dec num2str : num -> list char;
+    dec str2num : list char -> num;
+\end{verbatim}
+The contents of a named file (created lazily).
+\begin{verbatim}
+    dec read : list char -> list char;
+\end{verbatim}
+Abort execution with an error message.
+\begin{verbatim}
+    dec error : list char -> alpha;
+\end{verbatim}
+The usual arithmetical functions.
+\begin{verbatim}
+    infix +, - : 5;
+    infix *, /, div, mod : 6;
+    dec +, -, *, /, div, mod : num # num -> num;
+\end{verbatim}
+Math library.
+\begin{verbatim}
+    dec cos, sin, tan, acos, asin, atan : num -> num;
+    dec atan2, hypot : num # num -> num;
+    dec cosh, sinh, tanh, acosh, asinh, atanh : num -> num;
+    dec abs, ceil, floor : num -> num;
+    dec exp, log, log10, sqrt : num -> num;
+    dec pow : num # num -> num;
+    dec erf, erfc : num -> num;
+\end{verbatim}
+Any extra arguments on the interpreter command line.
+\begin{verbatim}
+    dec argv : list(list char);
+\end{verbatim}
+Part of the special treatment of the succ constructor.
+\begin{verbatim}
+    dec succ : num -> num;
+    --- succ n <= n+1;
+\end{verbatim}

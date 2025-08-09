@@ -22,7 +22,7 @@ INSTALL_DATA = ${INSTALL} -m 644
 INSTALL_PROGRAM = ${INSTALL}
 LDFLAGS	= 
 LIBS	= -lm 
-YACC	= bison -y
+YACC	= yacc
 mandir	= ${prefix}/man/man1
 
 # Where the standard modules live.
@@ -103,7 +103,7 @@ errors:	$(name) $(testdir)/*.in $(testdir)/*.out ../lib/*
 			diff - $(testdir)/$$STEM.out |\
 			sed "s/^/$$STEM: /";\
 	done >$@
-	LC_ALL; for file in ../lib/[a-z]*.hop;\
+	LC_ALL=C; for file in ../lib/[a-z]*.hop;\
 	do	HOPEPATH=../lib nice ./$(name) -f $$file 2>&1;\
 	done >>$@
 

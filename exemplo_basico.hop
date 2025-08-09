@@ -1,0 +1,27 @@
+! Exemplo básico de programação em Hope
+! Este arquivo demonstra conceitos fundamentais da linguagem
+
+! Definindo uma função simples para calcular o quadrado de um número
+dec quadrado: num -> num;
+--- quadrado(x) <= x * x;
+
+! Definindo uma função para calcular o fatorial
+dec fatorial: num -> num;
+--- fatorial(0) <= 1;
+--- fatorial(succ(n)) <= succ(n) * fatorial(n);
+
+! Definindo uma função para somar uma lista de números
+dec soma_lista: list(num) -> num;
+--- soma_lista([]) <= 0;
+--- soma_lista(x::xs) <= x + soma_lista(xs);
+
+! Definindo uma função para encontrar o maior elemento de uma lista
+dec maior: list(num) -> num;
+--- maior([x]) <= x;
+--- maior(x::xs) <= if x > maior(xs) then x else maior(xs);
+
+! Testando as funções
+quadrado(5);
+fatorial(5);
+soma_lista([1,2,3,4,5]);
+maior([3,7,2,9,1]);
