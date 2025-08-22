@@ -41,12 +41,12 @@ Aqui está um exemplo clássico de Fatorial em Hope, para ilustrar a sintaxe da 
 dec fact : num -> num;
 --- fact 0 <= 1;
 --- fact n <= n * fact(n-1);
-
+```
 Para testar, após carregar o arquivo, você pode executar:
 
-Snippet de código
-
+```Snippet de código
 fact(5);
+```
 👨‍💻 Contato
 Este é um projeto de aprendizado pessoal. Caso tenha alguma dúvida ou sugestão, sinta-se à vontade para me contatar.
 
