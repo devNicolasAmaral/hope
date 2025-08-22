@@ -1,0 +1,73 @@
+! Exercícios de Função em Sala de Aula
+
+uses basico;
+
+! Soma um número com 10
+dec soma_com_10 : num -> num;
+--- soma_com_10 (x) <= x + 10;
+soma_com_10 (5);
+
+! Subtrai 2 de um número
+dec subtrai_2 : num -> num;
+--- subtrai_2 (x) <= x - 2;
+subtrai_2 (20);
+
+! Multiplica um número pela constante x_pi e divide por 5
+dec x_pi_em_5 : num -> num;
+--- x_pi_em_5 (x) <= (x * x_pi) / 5;
+x_pi_em_5 (10);
+
+! Converte temperatura de Celsius para Fahrenheit
+dec c2f : num -> num;
+--- c2f (c) <= (c * 9 / 5) + 32;
+c2f (10);
+
+! Divide dois números
+dec divide : num # num -> num;
+--- divide (x, y) <= x / y;
+divide (4, 2);
+
+! Calcula a média de dois números
+dec media2 : num # num -> num;
+--- media2 (x, y) <= (x + y) / 2;
+media2 (4, 2);
+
+! Converte um valor para outra moeda com base na cotação
+dec euro : num # num -> num;
+--- euro (real, valor) <= real / valor;
+euro (500, 6.32);
+
+! Calcula o quadrado da soma de dois números
+dec quad_soma : num # num -> num;
+--- quad_soma (a, b) <= pow ((a + b), 2);
+quad_soma (2, 2);
+
+! Converte temperatura de Fahrenheit para Celsius
+dec f2c : num -> num;
+--- f2c (f) <= (f - 32) * 5 / 9;
+f2c (66);
+
+! Troca os valores de duas variáveis
+dec troca : num # num -> num # num;
+--- troca (a, b) <= (b, a);
+troca (2, 3);
+
+! Retorna uma tupla com os dois números de entrada
+dec parc : num # num -> num # num;
+--- parc (a, b) <= (a, b);
+parc (2, 3);
+
+! Calcula o quociente e o resto da divisão inteira
+dec dividir : num # num -> num # num;
+--- dividir (a, b) <= (a div b, a mod b);
+dividir (6, 8);
+
+! Calcula a média de três números
+dec media3 : num # num # num -> num;
+--- media3 (x, y, z) <= (x + y + z) / 3;
+media3 (4, 6, 8);
+
+! Retorna o último dígito de um número
+dec ultimoDigito : num -> num;
+--- ultimoDigito (n) <= n mod 10;
+ultimoDigito (52);

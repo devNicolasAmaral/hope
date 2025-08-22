@@ -1,0 +1,56 @@
+! Exercícios de Função em Sala de Aula
+
+dec negativo : num -> num;
+--- negativo (0) <= 0;
+--- negativo (n) <= if (n < 0) then n else 0 - n;
+negativo (0);
+negativo (5);
+negativo (0 - 5);
+
+dec classif : num # num-> num # num;
+--- classif (x, y) <= if x > y then (y, x) else (x, y);
+classif (5, 2);
+
+dec div84 : num -> truval;
+--- div84 (n) <= n mod 8 = 4;
+div84 (34);
+
+dec extenso : num -> list char;
+--- extenso (0) <= "zero";
+--- extenso (1) <= "Um";
+--- extenso (2) <= "Dois";
+--- extenso (3) <= "Três";
+--- extenso (4) <= "Quatro";
+--- extenso (5) <= "Cinco";
+--- extenso (6) <= "Seis";
+--- extenso (7) <= "Sete";
+--- extenso (8) <= "Oito";
+--- extenso (9) <= "Nove";
+--- extenso (_) <= "Valor Inválido";
+extenso (0);
+extenso (1);
+extenso (2);
+extenso (3);
+extenso (4);
+extenso (5);
+extenso (6);
+extenso (7);
+extenso (8);
+extenso (9);
+extenso (10);
+
+dec calculadora : num # num # num -> num;
+--- calculadora (x, y, operacao) <= if operacao = 00 
+                                    then x + y 
+                                    else if operacao = 01 
+                                    then x - y 
+                                    else if operacao = 10 
+                                    then x * y 
+                                    else if operacao = 11 
+                                    then x / y
+                                    else error ("Entrou Errado");
+calculadora (4, 8, 00);
+calculadora (4, 8, 01);
+calculadora (4, 8, 10);
+calculadora (4, 8, 11);
+calculadora (4, 8, 02);

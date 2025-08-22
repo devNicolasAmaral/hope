@@ -1,0 +1,46 @@
+! Define a função de adição com regras de tratamento especial para entradas com o valor zero.
+
+
+
+dec adicao : num # num -> num;
+--- adicao (0, y) <= y;
+--- adicao (x, 0) <= x;
+--- adicao (0, 0) <= 9999;
+--- adicao (x, y) <= x + y;
+adicao (0, 2);
+adicao (4, 0);
+adicao (0, 0);
+adicao (6, 2);
+
+! Desvio Condicional Direto
+
+dec par : num -> truval;
+--- par (n) <= if (n mod 2 = 0) then true else false;
+par (2);
+
+! Forma simplificada usada apenas para truval;
+
+dec par2 : num -> truval;
+--- par2 (n) <= n mod 2 = 0;
+par2 (3);
+
+dec impar : num -> truval;
+--- impar (n) <= if (n mod 2 /= 0) then true else false;
+impar (2);
+
+dec impar2 : num -> truval;
+--- impar2 (n) <= n mod 2 /= 0;
+impar2 (3);
+
+! Desvio Condicional Combinado
+
+dec valor : num -> num;
+---valor (0) <= 0;
+---valor (1) <= 2;
+---valor (n) <= if (n > 1 and n < 9) then (n * 5) else (n / 5);
+valor (0);
+valor (1);
+valor (3);
+valor (15);
+
+! save fluxo
