@@ -4,17 +4,17 @@ dec x_pi : num;
 --- x_pi <= 3.14159;
 x_pi;
 
-! Definição da função acirc(r)
+! Definição da função acirc (r)
 
 dec acirc : num -> num;
 --- acirc r <= x_pi * pow (r, 2);
-acirc(2);
+acirc (2);
 
 ! Definição da função soma(x, y) para o cálculo de x + y
 
 dec soma : num # num -> num;
 --- soma (x, y) <= x + y;
-soma(2, 2);
+soma (2, 2);
 
 ! Cria uma biblioteca do arquivo
 

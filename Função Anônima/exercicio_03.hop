@@ -1,0 +1,3 @@
+! Criar função anônima λa.(λb.(( a + b ) ^ 2)) que retorne o resultado do quadrado da adição dos valores fornecidos.
+
+(\a => \b => pow(a + b, 2)) 2 2;

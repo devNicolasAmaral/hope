@@ -1,5 +1,5 @@
 ! Resgata a biblioteca criada
 
-ses basico;
+uses basico;
 
 x_pi;

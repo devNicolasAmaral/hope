@@ -1,0 +1,3 @@
+! Criar função anônima λab.( a + b ) / 2 que retorne o resultade a média aritmética indicada.
+
+(\(a, b) =>  (a + b) / 2) (2, 4);

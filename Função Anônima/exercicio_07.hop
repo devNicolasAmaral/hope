@@ -1,0 +1,3 @@
+! Criar função anônima λx.( x * 2 ) que retorne o dobro de um número.
+
+(\x => x * 2) 2;

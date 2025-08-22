@@ -1,0 +1,3 @@
+! Criar função anônima λpa.(p / a ^ 2) que mostre o IMC (Índice de Massa Corporal) de uma pessoa com peso "p" e altura "a".
+
+(\(p, a) => (p / pow(a, 2))) (62, 1.76);

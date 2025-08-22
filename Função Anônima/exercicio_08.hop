@@ -1,0 +1,5 @@
+! Criar função anônima λr.(3.14 * r ^ 2) que calcule a área de uma circunferência dado o raio "r".
+
+uses basico;
+
+(\r => x_pi * pow(r, 2)) 5;

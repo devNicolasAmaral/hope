@@ -1,0 +1,3 @@
+! Criar função anônima λx.(x + 10) + 1 que retorne o seu valor sucessor.
+
+(\x => x + 10 + 1) 1;

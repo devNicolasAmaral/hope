@@ -1,0 +1,3 @@
+! Criar função anônima λn. (if n % 2 == 0 then "Par." else "Ímpar.") que verifica se o número é par ou ímpar.
+
+(\n => if n mod 2 = 0 then "Par." else "Ímpar.") 21;
