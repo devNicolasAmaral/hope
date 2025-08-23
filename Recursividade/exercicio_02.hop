@@ -1,0 +1,5 @@
+! Desenvolva função chamada prodIntervalo1(m, n) com recursividade simples que apresente o produto dos valores entre a faixa de valores "m" e "n".
+
+dec prodIntervalo1 : num # num -> num;
+--- prodIntervalo1 (m, n) <= if m > n then 1 else m * prodIntervalo1 (m + 1, n);
+prodIntervalo1 (3, 5);

@@ -1,0 +1,6 @@
+! Desenvolva função chamada potência (b, e) com recursividade simples que calcule a potencia base "b" elevada ao expoente "e".
+
+dec potencia : num # num -> num;
+--- potencia (n, 0) <= 1;
+--- potencia (b, e) <= b * potencia (b, e - 1);
+potencia (2, 3);
