@@ -1,0 +1,7 @@
+! Criar função chamada somaDigitos(n) com recursividade simples que apresente o resultado do somatório dos dígitos de um número "n". Utilize apenas casamento de padrões.
+
+dec somaDigitos : num -> num;
+--- somaDigitos 0 <= 0;
+--- somaDigitos 1 <= 1;
+--- somaDigitos n <= n mod 10 + somaDigitos( n div 10);
+somaDigitos (123);

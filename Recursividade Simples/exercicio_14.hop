@@ -1,0 +1,14 @@
+! Defina função mediaDigitos (n) com recursividade simples que retorne a média dos digitos do número fornecido. Se usado mediaDigitos(14276) deve ser retornado 4.0;
+
+dec contaDigitos : num -> num;
+--- contaDigitos 0 <= 0;
+--- contaDigitos n <= 1 + contaDigitos( n div 10);
+
+dec somaDigitos : num -> num;
+--- somaDigitos 0 <= 0;
+--- somaDigitos n <= n mod 10 + somaDigitos (n div 10);
+
+dec mediaDigitos : num -> num;
+--- mediaDigitos n <= somaDigitos n / contaDigitos n;
+mediaDigitos(14276);
+

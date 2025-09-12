@@ -1,0 +1,7 @@
+! Criar função chamada uns(n) com recursividade simples que apresente a quantidade de uns que aparecem no número "n";
+
+dec uns : num -> num;
+--- uns 0 <= 0;
+--- uns 1 <= 1;
+--- uns n <= if n < 10 then 0 else if n mod 10 = 1 then 1 + uns(n div 10) else uns (n div 10);
+uns (5);

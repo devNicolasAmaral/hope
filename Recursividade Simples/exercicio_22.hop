@@ -1,0 +1,9 @@
+! Elaborar função chamada produto(x, y) que retorne multiplicação de "x" por "y" por meio de soma.
+
+dec produto : num # num -> num;
+--- produto (a, 0) <= 0;
+--- produto (0, b) <= 0;
+--- produto (a, 1) <= a;
+--- produto (1, b) <= b;
+--- produto (a, b) <= a + produto (a, b - 1);
+produto (4, 2);

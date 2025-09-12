@@ -1,0 +1,8 @@
+! Criar função chamada collatz (n) com recursividade simples que receba um valor numérico inteiro positivo e divida-o por 2 se for par, sendo impar, multiplique-o por "3" e some "1". Caso seja informado "1" o retorno deve ser "1".
+
+dec collatz : num -> num;
+--- collatz 1 <= 1;
+--- collatz n <= if (abs n mod 2 = 0) 
+                 then collatz (abs n div 2)
+                 else collatz (n * 3 + 1);
+collatz 4;

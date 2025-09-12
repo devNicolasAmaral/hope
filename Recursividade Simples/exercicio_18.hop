@@ -1,0 +1,9 @@
+! Criar função chamada somaFaixa(m, n) que apresente o resultado do somatório dos valores entre "m" e "n". Se "n" for menor que "m" deve-se retornar zero, se "n" for igual a "m" deve-se retornar "m" e se "n" for maior que "m" deve-se realizar a operação de somatório.
+
+dec somaFaixa : num # num -> num;
+--- somaFaixa (m, n) <= if (n < m)
+                        then 0
+                        else if (n = m)
+                        then m
+                        else n + somaFaixa (m + 1, n);
+somaFaixa (2, 5);

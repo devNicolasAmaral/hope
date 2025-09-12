@@ -1,0 +1,7 @@
+! Elaborar função chamada dec2bin(n) que retorne em formato binário um valor decimal fornecido.
+
+dec dec2bin : num -> num;
+--- dec2bin 0 <= 0;
+--- dec2bin 1 <= 1;
+--- dec2bin n <= 10 * dec2bin ( n div 2) + n mod 2;
+dec2bin 10; 

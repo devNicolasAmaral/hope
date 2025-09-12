@@ -1,0 +1,7 @@
+! Criar função chamada qdois(n) com recursividade simples que apresente a quantidade de dígitos 2 que aparecem no número "n".
+
+dec uns : num -> num;
+--- uns 0 <= 0;
+--- uns 2 <= 1;
+--- uns n <= if n < 10 then 0 else if n mod 10 = 2 then 1 + uns(n div 10) else uns (n div 10);
+uns (12);

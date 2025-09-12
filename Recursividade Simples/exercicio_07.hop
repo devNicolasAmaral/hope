@@ -1,0 +1,5 @@
+! Criar função chamada somaDigitos'(n) com recursividade simples que apresente a soma dos dígitos que formam o número "n". Use o comando de decisão "se/if".
+
+dec somaDigitos' : num -> num;
+--- somaDigitos' n <= if n > 0 then n mod 10 + somaDigitos'(n div 10) else n;
+somaDigitos' (123);

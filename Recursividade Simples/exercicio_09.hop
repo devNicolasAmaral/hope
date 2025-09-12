@@ -1,0 +1,6 @@
+! Criar função chamada zeros(n) com recursividade simples que apresente a quantidade de zeros que aparecem no número "n".
+
+dec zeros : num -> num;
+--- zeros 0 <= 1;
+--- zeros n <= if n < 10 then 0 else if n mod 10 = 0 then 1 + zeros(n div 10) else zeros (n div 10);
+zeros (100);

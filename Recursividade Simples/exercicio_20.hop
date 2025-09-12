@@ -1,0 +1,14 @@
+! Defina uma função recursiva chamada minhaSoma(a, b) que calcule a soma de dois números inteiros sem usar os operadores de adição e/ou subtração. Para auxiliar as ações de adição e subtração crie primeiro as funções sucessor(n) e antecessor(n).
+
+dec sucessor : num -> num;
+--- sucessor n <= n + 1;
+
+dec antecessor : num -> num;
+--- antecessor n <= n - 1;
+
+dec minhaSoma : num # num -> num;
+--- minhaSoma (0, 0) <= 0;
+--- minhaSoma (0, b) <= b;
+--- minhaSoma (a, 0) <= a;
+--- minhaSoma (a, b) <= minhaSoma (sucessor a, antecessor b);
+minhaSoma (2, 3);

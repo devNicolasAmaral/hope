@@ -1,0 +1,5 @@
+! Criar função chamada resto(p, q) com recursividade simples que apresente o resultado do resto da divisão de "p" por "q".
+
+dec resto : num # num -> num;
+--- resto (p, q) <= if p < q then p else resto (p - q, q);
+resto (10, 5);

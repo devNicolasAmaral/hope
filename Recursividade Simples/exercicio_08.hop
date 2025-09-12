@@ -1,0 +1,5 @@
+! Criar função chamada primeiroDigito(n) com recursividade simples que apresente o primeiro dígito do número "n".
+
+dec primeiroDigito : num -> num;
+--- primeiroDigito n <= if n < 10 then n else primeiroDigito (n div 10);
+primeiroDigito (523);

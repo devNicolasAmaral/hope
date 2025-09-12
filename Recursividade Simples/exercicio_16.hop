@@ -1,0 +1,6 @@
+! Codifique a função calc (n) com recursividade simples.
+
+dec calc : num -> num;
+--- calc 0 <= 0;
+--- calc n <= (1.5 + calc(n - 1)) / 2;
+calc 5;

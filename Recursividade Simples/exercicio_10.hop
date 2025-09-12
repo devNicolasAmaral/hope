@@ -1,0 +1,6 @@
+! Criar função chamada somaQuadrados(n) com recursividade simples que apresente a soma dos quadrados dos números até "n".
+
+dec somaQuadrados : num -> num;
+--- somaQuadrados 0 <= 0;
+--- somaQuadrados n <= pow (n, 2) + somaQuadrados(n - 1);
+somaQuadrados 6;

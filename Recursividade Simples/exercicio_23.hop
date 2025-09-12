@@ -1,0 +1,7 @@
+! Elaborar função chamada bin2dec(n) que
+
+dec bin2dec : num -> num;
+--- bin2dec 0 <= 0;
+--- bin2dec 1 <= 1;
+--- bin2dec n <= 2 * bin2dec ( n div 10) + n mod 2;
+bin2dec 1010;

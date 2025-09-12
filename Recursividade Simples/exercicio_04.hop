@@ -1,0 +1,6 @@
+! Criar função chamada somaCubo(n) com recursividade simples que apresente resultado da soma dos cubos de 1 até "n".
+
+dec somaCubo : num -> num;
+--- somaCubo 0 <= 0;
+--- somaCubo n <= pow (n, 3) + somaCubo(n - 1);
+somaCubo 3;

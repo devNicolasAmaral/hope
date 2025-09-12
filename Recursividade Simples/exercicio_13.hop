@@ -1,0 +1,8 @@
+! Defina função recursiva chamada ehPotenciDeDois(n) com recursividade simples que retorne verdadeiro se o número fornecido for uma potência de dois, caso contrário retorne falso. Não use pow() ou ** na operação.
+
+dec ehPotenciDeDois : num -> truval;
+--- ehPotenciDeDois 1 <= true;
+--- ehPotenciDeDois n <= if n > 1 and n mod 2 = 0 
+                         then ehPotenciDeDois (n div 2) 
+                         else false;
+ehPotenciDeDois (4);

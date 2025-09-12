@@ -1,0 +1,7 @@
+! Criar função chamada contaPares(n) com recursividade simples que apresente a qwuantidade de números pares de 0 até "n".
+
+dec contaPares : num -> num;
+--- contaPares 0 <= 0;
+--- contaPares 1 <= 1;
+--- contaPares n <= n mod 2 + contaPares(n - 1);
+contaPares 3;
