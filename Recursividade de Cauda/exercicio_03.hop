@@ -1,0 +1,10 @@
+! Criar função chamada duplo_fat2(n) que apresente o resultado do duplo fatorial de um valor numérico inteiro. O duplo fatorial de 5!! = 15 (5 * 3 * 1).
+
+dec ftbase : num # num -> num;
+--- ftbase (0, p) <= p;
+--- ftbase (1, p) <= p;
+--- ftbase (n, p) <= ftbase (n - 2, n * p);
+
+dec fat2 : num -> num;
+--- fat2 n <= ftbase (n, 1);
+fat2 5;

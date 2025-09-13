@@ -1,0 +1,6 @@
+! Criar função chamada mdc2(a, b) que apresente o resultado do máximo divisor comum a partir do algoritmo de Euclides.
+
+dec mdc2 : num # num -> num;
+--- mdc2 (a, b) <= a;
+--- mdc2 (a, b) <= mdc2 (b, a mod b);
+mdc2 (10, 20);

@@ -1,0 +1,17 @@
+! Dada a função recursiva simples base2_1(n) que apresenta o cálculo da potência de um número natural fornecido em base 2, reescreva-a sob a ótica da recursividade de cauda.
+
+! Recursividade Simples
+dec base2_1 : num -> num;
+--- base2_1 0 <= 1;
+--- base2_1 n <= 2 * base2_1 (n -1);
+base2_1 (5);
+
+! Recursividade de Cauda
+dec base2x : num # num -> num;
+--- base2x (0, p) <= p;
+--- base2x (n, p) <= base2x (n - 1, p * 2);
+
+dec base2_2 : num -> num;
+--- base2_2 n <= base2x (n, 1);
+base2_2 (5);
+

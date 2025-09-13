@@ -1,0 +1,7 @@
+! Criar função chamada somaDigitos3(n) que apresente o resultado da somatória dos dígitos de um número "n" considerando o uso de recursividade de cauda.
+
+
+dec somaDigitos3 : num # num -> num;
+--- somaDigitos3 (0, p) <= p;
+--- somaDigitos3 (n, p) <= somaDigitos3(n div 10, n mod 10 + p );
+somaDigitos3 (123, 0);

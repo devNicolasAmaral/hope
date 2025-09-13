@@ -1,0 +1,71 @@
+! A recursão de cauda (tail call) é a forma de se realizar ações recursivas sem fazer uso do efeito de empilhamento de memória, garantindo que não haja mais nada a ser executado.
+
+! A recursão de cauda ocorre quando a chamada da função é a última ação executada pela função sem a ocorrência de armazenamento do resultado parcial na pulha de memória.
+
+! Na recursão de cauda não exisre processa,emto após o encerramentoda chamada recursiva da função, ou seja, não há armazenamento do estado do processamento na pilha de memória.
+
+! A recursão de cauda, também chamada de recursão em cauda, para ser eficiente aplicada necessita de alguns cuidados técnicos, pois a estratégia de sua definição depende dos recursos disponibilizados pelas linguagens de programação.
+
+! Uma função recursiva de cauda pode ser definida a partir de duas estratégias conceituais:
+
+! Forma Direta (mais comum);
+! Forma Indireta (mais raro).
+
+! Na forma direta faz-se a definição de uma função que opera toda a operação; na forma indireta faz-se a definição de duas funçoes (função base e função interface).
+
+! Tomando por base a definição de função recursiva de cauda indireta (forma mais traducional) considere o cálculo do fatorial de um número qualquer a partir da ótica da alçao de recursividade de cauda.
+
+! (n, p)! = {p              , se n = 0
+! p = 1      (n - 1, n * p)!, se n > 0
+
+! ftbase (número, número) >> número
+! ftbase (0, p) << p
+! ftbase (n, p) << ftbase (n - 1, n * p)
+
+! fat2 (número) >> número
+! fat2 (n) << ftbase (n, 1)
+
+! A recursividade de cauda está sendo aplicada na função ftbase (n, p) que efetua o cálculo propriamente dito. A função fat2 (n) é uma função interface usada para  simplificar o uso da função base que possui mais de um argumento.
+
+dec ftbase : num # num -> num;
+--- ftbase (0, p) <= p;
+--- ftbase (n, p) <= ftbase (n - 1, n * p);
+
+dec fat2 : num -> num;
+--- fat2 n <= ftbase (n, 1);
+fat2 5;
+
+! Veja que afunção base é mais complexa e delicada para uso por pessoas inexperientes.
+
+! A função ftbase (n, x) para o cálculo do fatorial necessita passar dois argumentos: o valor (n) a ser calculado e o valor inicial da operação (p), obrigatoriamente como 1: ftbase(n, 1).
+
+! Devido a este detalhe operacional é que se define uma função interface. como fat2(n), que simplifica o uso da função base, neste caso, executando ftbase(, 1).
+
+! Dependendo da linguagem em uso a função ftbase(n, p) pode ser definida como encapsulamento privado e a função fat2(n) pode ser definida com encapsulamento público.
+
+! A partir da visão do funcionamento básico da ação de recursividade de cauda para a função do cálculo do fatorial considere a função seguinte que efetua o cálculo do retorno do termo da sequência e Fibonacci informado.
+
+! F(n, x, y) = { x                 , se n = 0
+! x = 0          y                 , se n = 1
+! y = 1          x + y             , se n = 2
+!                F(n - 1, y, x + y), se n > 2
+
+! a partir da visão do funcionamento básico da ação de recursivadade de cauda para a função do cálculo do fatorial considere a função seguinte que efetua o cáclulo do retorno do termo da sequência de Fibonacci informado
+
+dec fbs : num # num # num -> num;
+--- fbs (0, anter, atual) <= anter;
+--- fbs (1, anter, atual) <= atual;
+--- fbs (2, anter, atual) <= atual + anter;
+--- fbs (n, anter, atual) <= fbs (n - 1, atual, anter + atual);
+
+dec fib2 : num -> num;
+--- fib2 (n) <= fbs (n, 0, 1);
+fib2 (30);
+
+! Os valores o e 1 dos segundo e terceiro argumentos na função fbs(n, 0, 1) são obrigatórios e não podem ser alterados.
+
+! Ao ser executada a função fib2(n) poderaçõ ser informados qualquer valor numérico inteiro.
+
+! É possível perceber que o resultado é apresentado imediato sem que haja a parada de tempo aguardando o término do processamento.
+
+! A recursão de cauda mostra-se muito mais eficiente que a recursão simples para os casos de sobrecarga de memória.

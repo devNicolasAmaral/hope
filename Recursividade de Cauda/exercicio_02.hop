@@ -1,0 +1,12 @@
+! Escreva a função quantasVezes(k, n) que determine quantas vezes um dígito "k" ocorre em um dado numérico "n". Por exemplo, no número 762021192 o dígito '2' ocorre '3' vezes.
+
+dec qvbase : num # num # num-> num;
+--- qvbase (k, n, i) <= if n = 0 
+                        then i 
+                        else if n mod 10 = k 
+                            then qvbase (k, n div 10, (i + 1)) 
+                            else qvbase (k, n div 10, i);
+
+dec quantasVezes : num # num -> num;
+--- quantasVezes (k, n) <= qvbase (k, n, 0);
+quantasVezes (2, 762021192);
